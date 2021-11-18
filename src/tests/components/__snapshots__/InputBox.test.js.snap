@@ -14,10 +14,60 @@ exports[`should render Input box correctly 1`] = `
   <input
     autoFocus={true}
     className="form-control input-box__textbox"
+    name=""
     onChange={[Function]}
     placeholder="Email Address"
     required={true}
     type="text"
+    value=""
+  />
+</div>
+`;
+
+exports[`should render Input box correctly with props 1`] = `
+<div
+  className="input-box"
+>
+  <p
+    className="input-box__icon"
+  >
+    <MdEmail
+      size={30}
+    />
+  </p>
+  <input
+    autoFocus={true}
+    className="form-control input-box__textbox"
+    name=""
+    onChange={[Function]}
+    placeholder="Email"
+    required={true}
+    type="text"
+    value=""
+  />
+</div>
+`;
+
+exports[`should render Input box correctly with props and set name 1`] = `
+<div
+  className="input-box"
+>
+  <p
+    className="input-box__icon"
+  >
+    <MdEmail
+      size={30}
+    />
+  </p>
+  <input
+    autoFocus={true}
+    className="form-control input-box__textbox"
+    name="email"
+    onChange={[Function]}
+    placeholder="Email"
+    required={true}
+    type="text"
+    value=""
   />
 </div>
 `;

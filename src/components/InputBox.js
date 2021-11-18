@@ -11,7 +11,9 @@ const InputBox = (props) => {
                 placeholder={props.placeholder}
                 onChange={props.onChange}
                 required
+                value={props.value || ''}
                 autoFocus
+                name={props.name || ''}
             />
         </div>
     )
