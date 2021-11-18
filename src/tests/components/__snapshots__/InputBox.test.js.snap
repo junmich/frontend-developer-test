@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render Input box correctly 1`] = `
+<div
+  className="input-box"
+>
+  <p
+    className="input-box__icon"
+  >
+    <MdEmail
+      size={30}
+    />
+  </p>
+  <input
+    autoFocus={true}
+    className="form-control input-box__textbox"
+    onChange={[Function]}
+    placeholder="Email Address"
+    required={true}
+    type="text"
+  />
+</div>
+`;

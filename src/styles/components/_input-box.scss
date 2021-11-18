@@ -1,0 +1,22 @@
+.input-box {
+    padding: 2px;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    background: #eceff1;
+    border-radius: 0.1rem;
+    margin-bottom: 1.2rem;
+}
+
+.input-box__icon {
+    margin: 3px;
+}
+
+.input-box__textbox {
+    margin-left: 1rem;
+    padding-bottom: 1.7rem;
+    width: 100%;
+    height: 3rem;
+    border: none;
+    background: #eceff1;
+}
