@@ -1,0 +1,92 @@
+.devices-container {
+    background: $devices-background;
+    display: -ms-flexbox;
+    display: -webkit-box;
+    display: flex;
+    -ms-flex-align: center;
+    -ms-flex-pack: center;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+}
+.circle-wrapper {
+    width:401px;
+    height:401px;
+    border-radius:51%;
+    position:relative;
+    margin-left: auto;
+    margin-right: auto;
+ }
+
+ .circle {
+    display:block;
+    position:absolute;
+    top:51%;
+    left:51%;
+    width:80px;
+    height:80px;
+    margin:-51px;
+    background:$white;
+    border-radius:51%;
+    text-align:center;
+    line-height:100px;
+
+    animation: pulse 5s infinite;
+ }
+
+ @keyframes pulse {
+    0% {
+      background-color: $white;
+    }
+    50% {
+        background-color: $animate-color;
+    }
+    100% {
+      background-color: $white;
+    }
+  }
+
+ .device--number {
+     font-size: 5rem;
+ }
+
+ .device {
+    color: #ffffff;
+    display:block;
+    position:absolute;
+    font-size: 1.5rem;
+    top:51%;
+    left:51%;
+    width:100px;
+    height:100px;
+    margin:-51px;
+    text-align:center;
+ }
+
+$degress: (10, 35, 60, 85, 110, 135, 160, 185, 210, 235, 260, 285, 310, 335);
+
+@each $value in $degress {
+    .deg-200-#{$value} {
+        transform:rotate(#{$value + 1}deg) translate(251px) rotate(-#{$value + 1}deg);
+    }
+    .deg-380-#{$value} {
+        transform:rotate(#{$value + 1}deg) translate(381px) rotate(-#{$value + 1}deg);
+    }
+}
+
+.devices--footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: rgba(#000, .2);
+    text-align: center;
+    padding: 3rem;
+}

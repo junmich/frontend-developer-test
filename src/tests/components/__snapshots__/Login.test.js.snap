@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render Input box correctly 1`] = `
+<div
+  className="body"
+>
+  <div
+    className="text-center"
+  >
+    <form
+      className="form-signin"
+      onSubmit={[Function]}
+    >
+      <h1
+        className="login--title"
+      >
+        Login
+      </h1>
+      <InputBox
+        icon={
+          <MdEmail
+            size={25}
+          />
+        }
+        name="email"
+        onChange={[Function]}
+        placeholder="Email Address"
+        type="text"
+        value=""
+      />
+      <InputBox
+        icon={
+          <BsPatchExclamationFill
+            size={25}
+          />
+        }
+        name="password"
+        onChange={[Function]}
+        placeholder="Password"
+        type="password"
+        value=""
+      />
+      <Button
+        disabled={true}
+        mode="info"
+        name="Log In"
+        onClick={[Function]}
+        type="submit"
+      />
+    </form>
+  </div>
+</div>
+`;

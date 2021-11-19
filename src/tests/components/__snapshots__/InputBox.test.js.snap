@@ -8,7 +8,7 @@ exports[`should render Input box correctly 1`] = `
     className="input-box__icon"
   >
     <MdEmail
-      size={30}
+      size={25}
     />
   </p>
   <input
@@ -32,7 +32,7 @@ exports[`should render Input box correctly with props 1`] = `
     className="input-box__icon"
   >
     <MdEmail
-      size={30}
+      size={25}
     />
   </p>
   <input
@@ -56,7 +56,7 @@ exports[`should render Input box correctly with props and set name 1`] = `
     className="input-box__icon"
   >
     <MdEmail
-      size={30}
+      size={25}
     />
   </p>
   <input

@@ -16,8 +16,7 @@ class Main extends React.Component {
         this.setState(() => ({ isLoggedIn }));
     }
     render() {
-        console.log(this.state.isLoggedIn)
-        return this.state.isLoggedIn ? <Devices /> : <Login updateLoginState={this.updateLoginState} />
+        return this.state.isLoggedIn ? <Devices updateLoginState={this.updateLoginState} /> : <Login updateLoginState={this.updateLoginState} />
     }
 }
 

@@ -22,7 +22,7 @@ const InputBox = (props) => {
 InputBox.defaultProps = {
     type: "text",
     placeholder: 'Email Address',
-    icon: <MdEmail size={30} />,
+    icon: <MdEmail size={25} />,
 onChange: () => { /* do nothing */ }
 }
 export default InputBox;

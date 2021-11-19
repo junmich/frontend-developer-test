@@ -1,26 +1,27 @@
 import React from 'react';
 import InputBox from './InputBox';
 
-import { BsPatchExclamationFill } from 'react-icons/bs'
-import { Exception } from 'handlebars/runtime';
+import { BsPatchExclamationFill } from 'react-icons/bs';
+import Button from './Button';
+import { HOST } from '../config/api';
 
 class Login extends React.Component {
     state = {
         email: '',
         password: '',
-        error: undefined
+        error: undefined,
+        loading: false,
     };
 
-    handleInputChange = (e) => this.setState(() => ({ [e.target.name]: e.target.value }))
+    handleInputChange = (e) => this.setState(() => ({ [e.target.name]: e.target.value }));
     // use arrow function to avoid method binding
     handleLogin = (e) => {
         e.preventDefault();
-        console.log('test submit');
-        const host = 'http://35.201.2.209:8000';
         const { email, password } = this.state;
         console.log(this.state);
+        this.setState(() => ({ loading: true }));
         // try {
-            fetch(`${host}/login`, {
+            fetch(`${HOST}/login`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -31,37 +32,45 @@ class Login extends React.Component {
                 })
             })
             .then(response => {
-                console.log(response);
-                if (!response.ok) {
-                   throw new Exception("Invalid email and password combination");
-                } else {
-                    return response.text();
-                }
-                
-            }
-            )
-            .then(data => {
-                console.log(data);
-                localStorage.setItem('token', data);
-                this.props.updateLoginState();
-            })
-            .catch(error => {
-                console.log(error);
-                this.setState(() => ({error: error.message }))
+                response.text().then(data => {
+                    if (!response.ok) {
+                        this.setState(() => ({error: data}));
+                    } else {
+                        localStorage.setItem('token', data);
+                        this.props.updateLoginState();
+                    }
+                    this.setState(() => ({error: data, loading: false}));
+                });
             });
         }
 
     render () {
-        console.log(this.state.error);
         return (
             <div className="body">
                 <div className="text-center">
                     <form className="form-signin" onSubmit={this.handleLogin}>
-                        {this.state.error && <p>{this.state.error}</p>}
+                        {this.state.error && <p className="login--error">{this.state.error}</p>}
                         <h1 className="login--title">Login</h1>
-                        <InputBox onChange={this.handleInputChange} value={this.state.email} name="email" type="text" placeholder="Email Address" />
-                        <InputBox onChange={this.handleInputChange} value={this.state.password} name="password" icon={<BsPatchExclamationFill size={30} />} type="password" placeholder="Password" />
-                        <button className="btn btn-lg btn-primary" type="submit">Log In</button>
+                        <InputBox
+                            onChange={this.handleInputChange}
+                            value={this.state.email} name="email" 
+                            type="text" 
+                            placeholder="Email Address"
+                        />
+                        <InputBox
+                            onChange={this.handleInputChange}
+                            value={this.state.password} 
+                            name="password"
+                            icon={<BsPatchExclamationFill size={25} />} 
+                            type="password" 
+                            placeholder="Password"
+                        />
+                        <Button 
+                            type="submit"
+                            disabled={this.state.email === '' || this.state.password === ''}
+                            name={this.state.loading ? 'Loading...' : 'Log In'} 
+                            mode="info"
+                        />
                     </form>
                 </div>
             </div>

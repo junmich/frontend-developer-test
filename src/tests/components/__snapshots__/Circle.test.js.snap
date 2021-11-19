@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render circle and assign circle class correctly 1`] = `
+<div
+  className="testClass"
+/>
+`;
+
+exports[`should render circle correctly 1`] = `
+<div
+  className="circle deg-200-10"
+/>
+`;

@@ -2,5 +2,7 @@
 @import './base/base';
 
 @import "~bootstrap/scss/bootstrap";
+@import './components/button';
+@import './components/devices';
 @import './components/input-box';
 @import './components/login';
