@@ -44,3 +44,10 @@ solution.
 
 
 Good luck!
+
+To run
+---
+1. Run npm install or yarn install in command line
+2. Run npm run dev-server or yarn run dev-server
+
+
