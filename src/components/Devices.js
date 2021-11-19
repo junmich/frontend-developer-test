@@ -50,11 +50,12 @@ const Devices = ({ updateLoginState }) => {
     }
     const handleNotify = () => {
         const token = localStorage.getItem('token');
+        console.log(token);
         fetch(`${HOST}/notify`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization:': `Bearer ${token}`
+                'Authorization': `Bearer ${token}`
             },
             body: JSON.stringify({
                 name: 'Rodolfo Borgonos Jr',

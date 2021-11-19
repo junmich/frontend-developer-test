@@ -20,29 +20,29 @@ class Login extends React.Component {
         const { email, password } = this.state;
         console.log(this.state);
         this.setState(() => ({ loading: true }));
-        // try {
-            fetch(`${HOST}/login`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    email,
-                    password
-                })
+
+        fetch(`${HOST}/login`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                email,
+                password
             })
-            .then(response => {
-                response.text().then(data => {
-                    if (!response.ok) {
-                        this.setState(() => ({error: data}));
-                    } else {
-                        localStorage.setItem('token', data);
-                        this.props.updateLoginState();
-                    }
-                    this.setState(() => ({error: data, loading: false}));
-                });
+        })
+        .then(response => {
+            response.text().then(data => {
+                if (!response.ok) {
+                    this.setState(() => ({error: data}));
+                } else {
+                    localStorage.setItem('token', data);
+                    this.props.updateLoginState();
+                }
+                this.setState(() => ({error: data, loading: false}));
             });
-        }
+        });
+    }
 
     render () {
         return (
